@@ -23,12 +23,12 @@ const logoutRouter = require("./routes/logout");
 
 
 const main = () => {
-  mongoose.connect('mongodb://127.0.0.1:27017/golive')
+  mongoose.connect(process.env.DB_URL)
     .then(() => console.log('DB connected successfully'))
     .catch(err => console.log('DB connection failed:', err));
 }
 app.use(cors({
-  origin: "http://localhost:5173", // exact frontend origin
+  origin: process.env.FRONTEND_URL, // exact frontend origin
   credentials: true                 // allow cookies
 }));
 main();
