@@ -1,0 +1,11 @@
+import axios from "axios";
+const api=axios.create({
+    baseURL: `${meta.env.BACKEND_URL}/api`,
+    timeout:10000,
+    withCredentials: true,
+    headers:{
+        "content-type": "application/json"
+    }
+})
+
+export default api;
