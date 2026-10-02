@@ -1,7 +1,7 @@
 
 import Btn from "../components/Btn";
 import React, { useEffect, useRef, useState } from "react";
-const Server_url = meta.env.BACKEND_URL;
+const Server_url = import.meta.env.BACKEND_URL;
 import { io } from "socket.io-client";
 
 import VideocamIcon from '@mui/icons-material/Videocam';
