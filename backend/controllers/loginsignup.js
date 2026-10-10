@@ -30,7 +30,8 @@ const Signup = async (req, res, next) => {
     }
 
   }
-  catch {
+  catch(e) {
+    console.log("signup err",e);
     res.status(500).json({ success: false, message: false });
   }
 
