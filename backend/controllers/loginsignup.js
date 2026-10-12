@@ -70,13 +70,14 @@ const Login = async (req, res, next) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
       maxAge: 3600000
     })
     res.status(200).json({ message: "login success", success: true })
   }
-  catch {
+  catch(e) {
+    console.log("login error",e)
     res.status(500).json({ message: "internal server error", success: false });
   }
 
@@ -88,8 +89,8 @@ const logout = async (req, res) => {
     try {
         res.clearCookie("token", {
             httpOnly: true,
-            secure: false,
-            sameSite: "lax",
+            secure: true,
+            sameSite: "none",
             path: "/"
         });
 
@@ -107,8 +108,6 @@ const logout = async (req, res) => {
         });
     }
 };
-
-
 
 
 module.exports = {
